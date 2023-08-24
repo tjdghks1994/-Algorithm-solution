@@ -20,15 +20,17 @@ public class RemoveDuplicateSortedArray2 {
         // for(i=1; i<배열길이; i++)
         //      if(nums[i] == nums[i-1])
         //          if(중복 플래그가 이미 true)
-        //              교환포인터+1
+        //              교환대상포인터+1 -> i를 의미
         //          else - 중복 플래그가 false
         //              중복 허용
         //              num[저장포인터] = nums[i]
-        //              저장포인터+1, 교환포인터+1
+        //              저장포인터+1
+        //              교환대상포인터+1 -> i를 의미
         //      else - nums[i] != nums[i-1]
         //          nums[저장포인터] = nums[i]
         //          중복 플래그 = false 변경
-        //          저장포인터 +1, 교환포인터+1
+        //          저장포인터 +1
+        //          교환대상포인터+1 -> i를 의미
 
         boolean flag = false;
         int savePointer = 1;
