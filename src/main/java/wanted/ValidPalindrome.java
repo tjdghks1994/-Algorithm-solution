@@ -1,7 +1,4 @@
 package main.java.wanted;
-
-import java.util.regex.Pattern;
-
 public class ValidPalindrome {
 
     /**
