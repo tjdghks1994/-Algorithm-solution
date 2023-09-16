@@ -1,4 +1,4 @@
-package main.java.wanted;
+package main.java.wanted.leetCode;
 
 /**
  * Definition for singly-linked list.
