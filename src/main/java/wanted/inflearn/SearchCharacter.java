@@ -17,11 +17,15 @@ public class SearchCharacter {
         int cnt = 0;
 
         str = str.toUpperCase();
+        ch = Character.toUpperCase(ch);
 
         for (int i = 0; i < str.length(); i++) {
-            // ch 가 대문자인 경우와 소문자인 경우 값 비교
-            // ch 가 소문자인 경우 대문자 아스키 코드값 + 32 를 하면 된다
-            if (str.charAt(i) == ch || str.charAt(i) + 32 == ch) {
+//            // ch 가 대문자인 경우와 소문자인 경우 값 비교
+//            // ch 가 소문자인 경우 대문자 아스키 코드값 + 32 를 하면 된다
+//            if (str.charAt(i) == ch || str.charAt(i) + 32 == ch) {
+//                cnt++;
+//            }
+            if (str.charAt(i) == ch) {
                 cnt++;
             }
         }
