@@ -17,22 +17,28 @@ public class FlipWorld {
      */
 
     public static void solution(String[] words) {
-        Stack<String> st = new Stack<>();
+//        Stack<String> st = new Stack<>();
         StringBuilder sb = null;
 
-        for (int i = 0; i < words.length; i++) {
-            sb = new StringBuilder();
-            String word = words[i];
+//        for (int i = 0; i < words.length; i++) {
+//            sb = new StringBuilder();
+//            String word = words[i];
+//
+//            for (int j = 0; j < word.length(); j++) {
+//                st.push(String.valueOf(word.charAt(j)));
+//            }
+//
+//            while (!st.isEmpty()) {
+//                sb.append(st.pop());
+//            }
+//
+//            System.out.println(sb.toString());
+//        }
 
-            for (int j = 0; j < word.length(); j++) {
-                st.push(String.valueOf(word.charAt(j)));
-            }
+        for (String word : words) {
+            sb = new StringBuilder(word);
 
-            while (!st.isEmpty()) {
-                sb.append(st.pop());
-            }
-
-            System.out.println(sb.toString());
+            System.out.println(sb.reverse());
         }
     }
 
