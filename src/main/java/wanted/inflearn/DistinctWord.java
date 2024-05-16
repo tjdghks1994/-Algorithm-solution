@@ -15,36 +15,50 @@ public class DistinctWord {
      * 예시 : 입력 - ksekkset   출력 - kset
      */
 
-    public static void solution(StringBuilder sb, char word) {
+    public static void solution(String words) {
         // jdk 1.8 버전에서는 sb.isEmpty() 메서드가 존재하지 않음
-        if (sb.length() == 0) {
-            sb.append(word);
-        }
+//        if (sb.length() == 0) {
+//            sb.append(word);
+//        }
+//
+//        boolean isAlready = false;
+//
+//        for (int i = 0; i < sb.length(); i++) {
+//            if (word == sb.charAt(i)) {
+//                isAlready = true;
+//            }
+//        }
+//
+//        if (!isAlready) {
+//            sb.append(word);
+//        }
 
-        boolean isAlready = false;
+        StringBuilder sb = new StringBuilder();
 
-        for (int i = 0; i < sb.length(); i++) {
-            if (word == sb.charAt(i)) {
-                isAlready = true;
+        for (int i = 0; i < words.length(); i++) {
+            char ch = words.charAt(i);
+
+            if (words.indexOf(ch) == i) {
+                sb.append(ch);
             }
         }
 
-        if (!isAlready) {
-            sb.append(word);
-        }
+        System.out.println(sb.toString());
     }
 
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         String words = in.next();
-        char[] chars = words.toCharArray();
-        StringBuilder sb = new StringBuilder();
+        solution(words);
 
-        for (char ch : chars) {
-            solution(sb, ch);
-        }
-
-        System.out.println(sb.toString());
+//        char[] chars = words.toCharArray();
+//        StringBuilder sb = new StringBuilder();
+//
+//        for (char ch : chars) {
+//            solution(sb, ch);
+//        }
+//
+//        System.out.println(sb.toString());
     }
 }
