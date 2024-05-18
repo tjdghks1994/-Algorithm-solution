@@ -17,22 +17,30 @@ public class PalindromeString {
      */
 
     public static void solution(String str) {
-        int lp = 0;
-        int rp = str.length() - 1;
-        str = str.toUpperCase();
-        char[] chars = str.toCharArray();
+//        int lp = 0;
+//        int rp = str.length() - 1;
+//        str = str.toUpperCase();
+//        char[] chars = str.toCharArray();
+//
+//        while (lp < rp) {
+//            if (chars[lp] != chars[rp]) {
+//                System.out.println("NO");
+//                return;
+//            }
+//
+//            lp++;
+//            rp--;
+//        }
+//
+//        System.out.println("YES");
+        StringBuilder sb = new StringBuilder(str);
+        String tmp = sb.reverse().toString();
 
-        while (lp < rp) {
-            if (chars[lp] != chars[rp]) {
-                System.out.println("NO");
-                return;
-            }
-
-            lp++;
-            rp--;
+        if (str.equals(tmp)) {
+            System.out.println("YES");
+        } else {
+            System.out.println("NO");
         }
-
-        System.out.println("YES");
     }
 
     public static void main(String[] args) {
