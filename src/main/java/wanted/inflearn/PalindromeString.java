@@ -36,7 +36,7 @@ public class PalindromeString {
         StringBuilder sb = new StringBuilder(str);
         String tmp = sb.reverse().toString();
 
-        if (str.equals(tmp)) {
+        if (str.equalsIgnoreCase(tmp)) {
             System.out.println("YES");
         } else {
             System.out.println("NO");
