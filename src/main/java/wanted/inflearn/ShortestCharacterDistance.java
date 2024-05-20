@@ -16,7 +16,6 @@ public class ShortestCharacterDistance {
      *
      * 예시 : 입력 - teachermode  e     출력 - 1 0 1 2 1 0 1 2 2 1 0
      */
-
     public static void solution(String str, String ch) {
         List<Integer> eIndexes = new ArrayList<>();
         // e의 위치를 전부 찾아내서 index 값을 보관
@@ -33,16 +32,20 @@ public class ShortestCharacterDistance {
             // 자기자신의 거리는 무조건 0
             if (str.charAt(i) == ch.charAt(0)) {
                 minDistance = 0;
+                // 최소거리 출력
                 System.out.print(minDistance+" ");
                 continue;
             }
-
+            // 현재 문자의 최소 거리 구하기
             for (int j = 0; j < eIndexes.size(); j++) {
+                // 문자열 인덱스 값과 e의 위치 index 값의 차이를 구함 (절대값 활용 - 음수는 없으므로)
                 int distance = Math.abs(i - eIndexes.get(j));
+                // 최소거리가 distance 보다 크면 최소 거리값 변경
                 if (minDistance > distance) {
                     minDistance = distance;
                 }
             }
+            // 최소거리 출력
             System.out.print(minDistance+" ");
         }
     }
