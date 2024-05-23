@@ -19,20 +19,28 @@ public class VisibleStudent {
 
     public static void solution(int[] keyArr) {
         int visibleCnt = 1; // 볼 수 있는 최대학생 수 - 맨 앞에 서 있는 학생은 무조건 보임
+        int maxKey = keyArr[0]; // 현재 가장 큰 키
+
+//        for (int i = 1; i < keyArr.length; i++) {
+//            boolean isVisible = false;
+//            // 자기 자신의 앞쪽에 있는 모든 학생들을 비교
+//            for (int j = i - 1; j >= 0; j--) {
+//                if (keyArr[i] > keyArr[j]) {
+//                    isVisible = true;
+//                } else {
+//                    isVisible = false;
+//                    break;
+//                }
+//            }
+//
+//            if(isVisible) visibleCnt++;
+//        }
 
         for (int i = 1; i < keyArr.length; i++) {
-            boolean isVisible = false;
-            // 자기 자신의 앞쪽에 있는 모든 학생들을 비교
-            for (int j = i - 1; j >= 0; j--) {
-                if (keyArr[i] > keyArr[j]) {
-                    isVisible = true;
-                } else {
-                    isVisible = false;
-                    break;
-                }
+            if (keyArr[i] > maxKey) {
+                visibleCnt++;
+                maxKey = keyArr[i]; // 현재 가장 큰 키를 변경
             }
-
-            if(isVisible) visibleCnt++;
         }
 
         System.out.println(visibleCnt);
