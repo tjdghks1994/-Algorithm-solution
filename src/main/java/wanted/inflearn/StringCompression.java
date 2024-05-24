@@ -25,29 +25,34 @@ public class StringCompression {
         int lp = 0;
         int rp = 0;
         int cnt = 0;
-
+        // 오른쪽 윈도우 포인터가 배열의 길이를 초과하지 않을 때 까지 반복
         while (rp < chars.length) {
-
+            // 왼쪽 포인터의 문자 값과 오른쪽 포인터의 문자 값이 같으면
+            // 갯수 증가, 오른쪽 포인터 증가
             if (chars[lp] == chars[rp]) {
                 cnt++;
                 rp++;
             } else {
+                // 왼쪽 포인터의 문자 값과 오른쪽 포인터의 문자 값이 달라졌다면
+                // 왼쪽 포인터의 문자를 sb에 추가
                 sb.append(chars[lp]);
-                if (cnt != 1) {
+                // 만약 갯수가 1보다 크다면
+                // 갯수 값도 sb에 추가
+                if (cnt > 1) {
                     sb.append(cnt);
                 }
+                // 왼쪽 포인터를 오른쪽 포인터로 변경 (윈도우의 시작점 변경)
                 lp = rp;
+                // 갯수 초기화
                 cnt = 0;
             }
-
         }
-
+        // 마지막 문자에 대한 처리 추가
         sb.append(chars[lp]);
         if (cnt != 1) {
             sb.append(cnt);
         }
-
-
+        // 출력
         System.out.println(sb);
     }
 
