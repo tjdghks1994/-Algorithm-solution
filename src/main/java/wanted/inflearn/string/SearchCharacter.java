@@ -1,4 +1,4 @@
-package main.java.wanted.inflearn;
+package main.java.wanted.inflearn.string;
 
 public class SearchCharacter {
     /**

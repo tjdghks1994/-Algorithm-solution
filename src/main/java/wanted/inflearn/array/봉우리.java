@@ -1,4 +1,4 @@
-package main.java.wanted.inflearn;
+package main.java.wanted.inflearn.array;
 
 import java.util.Scanner;
 
@@ -23,16 +23,32 @@ public class 봉우리 {
 
     public static void solution(int[][] tdArr) {
         int peakCnt = 0;    // 봉우리 수
+        int[] dx = {-1, 0, 1, 0};
+        int[] dy = {0, -1, 0, 1};
 
         for (int i = 1; i < tdArr.length - 1; i++) {
             for (int j = 1; j < tdArr.length - 1; j++) {
-                if (tdArr[i][j] > tdArr[i-1][j] && // 상
-                    tdArr[i][j] > tdArr[i+1][j] && // 하
-                    tdArr[i][j] > tdArr[i][j-1] && // 좌
-                    tdArr[i][j] > tdArr[i][j+1] // 우
-                ) {
-                    peakCnt++;
+//                if (tdArr[i][j] > tdArr[i-1][j] && // 상
+//                    tdArr[i][j] > tdArr[i+1][j] && // 하
+//                    tdArr[i][j] > tdArr[i][j-1] && // 좌
+//                    tdArr[i][j] > tdArr[i][j+1] // 우
+//                ) {
+//                    peakCnt++;
+//                }
+                boolean isPeak = true;
+                for (int k = 0; k < 4; k++) {
+                    int nx = i+dx[k];
+                    int ny = j+dy[k];
+                    // 반복문을 통해 상 하 좌 우 값과 비교
+                    if (nx >= 0 && nx < tdArr.length &&
+                        ny >= 0 && ny < tdArr.length &&
+                        tdArr[nx][ny] >= tdArr[i][j]) {
+
+                        isPeak = false;
+                    }
                 }
+
+                if(isPeak) peakCnt++;
             }
         }
 

@@ -1,4 +1,4 @@
-package main.java.wanted.inflearn;
+package main.java.wanted.inflearn.array;
 
 import com.mysql.cj.util.StringUtils;
 
