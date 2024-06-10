@@ -19,26 +19,38 @@ public class 연속된자연수의합 {
      */
 
     public static void solution(int num) {
+//        int cnt = 0;
+//        int sum = 0;
+//        int lp = 1;
+//
+//        for (int rp = 1; rp < num; rp++) {
+//            sum += rp;
+//
+//            if (sum == num) {
+//                cnt++;
+//                sum -= lp;
+//                lp++;
+//            }
+//
+//            while (sum > num) {
+//                sum -= lp;
+//                lp++;
+//
+//                if (sum == num) {
+//                    cnt++;
+//                }
+//            }
+//        }
         int cnt = 0;
-        int sum = 0;
-        int lp = 1;
+        int n = 1;
+        num--;
 
-        for (int rp = 1; rp < num; rp++) {
-            sum += rp;
+        while (num > 0) {
+            n++;
+            num = num - n;
 
-            if (sum == num) {
+            if (num % n == 0) {
                 cnt++;
-                sum -= lp;
-                lp++;
-            }
-
-            while (sum > num) {
-                sum -= lp;
-                lp++;
-
-                if (sum == num) {
-                    cnt++;
-                }
             }
         }
 
