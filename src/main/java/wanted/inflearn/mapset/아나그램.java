@@ -25,25 +25,37 @@ public class 아나그램 {
      */
 
     public static void solution(String str1, String str2) {
-        Map<Character, Integer> map1 = new HashMap<>();
-        Map<Character, Integer> map2 = new HashMap<>();
+        Map<Character, Integer> map = new HashMap<>();
+//        Map<Character, Integer> map2 = new HashMap<>();
 
         for (char ch : str1.toCharArray()) {
-            map1.put(ch, map1.getOrDefault(ch, 0) + 1);
+            map.put(ch, map.getOrDefault(ch, 0) + 1);
         }
+
+//        for (char ch : str2.toCharArray()) {
+//            map2.put(ch, map2.getOrDefault(ch, 0) + 1);
+//        }
+
+//        for (char ch : map1.keySet()) {
+//            // map1에 존재하는 key 가 map2에 존재하지 않는 경우
+//            // or
+//            // map1에 존재하는 key 의 value 값과 map2에 존재하는 key 의 value 값이 다른 경우
+//            if ( map2.get(ch) == null || map1.get(ch) != map2.get(ch) ) {
+//                System.out.println("NO");
+//                return;
+//            }
+//        }
 
         for (char ch : str2.toCharArray()) {
-            map2.put(ch, map2.getOrDefault(ch, 0) + 1);
-        }
-
-        for (char ch : map1.keySet()) {
-            // map1에 존재하는 key 가 map2에 존재하지 않는 경우
+            // 첫 번째 단어가 저장된 map 에 포함된 key 인지 확인
             // or
-            // map1에 존재하는 key 의 value 값과 map2에 존재하는 key 의 value 값이 다른 경우
-            if ( map2.get(ch) == null || map1.get(ch) != map2.get(ch) ) {
+            // 첫 번째 단어가 저장된 map 의 key 값을 조회했는데 값이 0인 경우
+            if (!map.containsKey(ch) || map.get(ch) == 0) {
                 System.out.println("NO");
                 return;
             }
+            // 두 번째 단어가 첫 번째 단어가 저장된 map 에 포함된 단어라면 key 에 해당되는 value 값을 1 감소
+            map.put(ch, map.get(ch) - 1);
         }
 
         System.out.println("YES");
