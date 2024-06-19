@@ -1,0 +1,51 @@
+package main.java.wanted.inflearn.sortsearch;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class 선택정렬 {
+    /**
+     * 문제 : N개의 숫자가 입력되면 오름차순으로 정렬하여 출력하는 프로그램을 작성하세요.
+     *       정렬하는 방법은 선택정렬입니다.
+     *
+     * 입력 : 첫 번째 줄에 자연수 N(1<=N<=100)이 주어집니다.
+     *       두 번째 줄에 N개의 자연수가 공백을 사이에 두고 입력됩니다.
+     *       각 자연수는 정수형 범위 안에 있습니다.
+     *
+     * 출력 : 오름차순으로 정렬된 수열을 출력합니다.
+     *
+     * 예시 : 입력 - 6                  출력 -  5 7 11 13 15 23
+     *            13 5 11 7 23 15
+     */
+
+    public static void solution(int[] arr) {
+
+        for (int i = 0; i < arr.length; i++) {
+            int minIdx = i; // 가장 작은 수 위치
+            // 가장 작은수를 찾기 (선택)
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[minIdx] > arr[j]) {
+                    minIdx = j;
+                }
+            }
+            // 가장 작은수를 i번째 위치로 이동
+            int tmp = arr[i];
+            arr[i] = arr[minIdx];
+            arr[minIdx] = tmp;
+        }
+
+        System.out.println(Arrays.toString(arr));
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int[] arr = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = in.nextInt();
+        }
+
+        solution(arr);
+    }
+}
