@@ -21,6 +21,9 @@ public class 합이같은부분집합 {
     static int[] ch;    // 부분집합에 속하는지 체크 배열
 
     public static void solution(int idx, int[] arr) {
+        // 이미 두 부분집합의 합이 같은 경우를 발견했다면 이후의 경우의 수를 찾을 필요 없으므로 바로 종료하도록 추가
+        if(answer) {return;}
+
         // 마지막 노드까지 방문했다면
         // 체크 배열을 확인해 0과 1 값을 가진 부분집합으로 나누고 두 부분집합의 합을 구해 같은 경우 "YES" 출력
         if (idx == arr.length) {
