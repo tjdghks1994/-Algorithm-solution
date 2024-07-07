@@ -26,8 +26,8 @@ public class 멘토링 {
      */
     public static void solution(int[][] tdArr) {
         int pair = 0;
-        for (int i = 1; i <= tdArr[0].length; i++) {
-            for (int j = 1; j <= tdArr[0].length; j++) {
+        for (int i = 1; i <= tdArr[0].length; i++) {        // 학생 번호
+            for (int j = 1; j <= tdArr[0].length; j++) {    // 학생 번호
                 int cnt = 0;
                 for (int k = 0; k < tdArr.length; k++) {    // 테스트 회차
                     int poi = 0;    // (i,j) 일때 i의 등수
@@ -41,7 +41,7 @@ public class 멘토링 {
                         }
                     }
                     // 멘토, 멘티 가능한 조합이라 cnt 값 증가
-                    if(poi > poj) cnt++;
+                    if(poi < poj) cnt++;
                 }
                 // (i,j) 조합이 K번 회차 모두 멘토, 멘티가 가능한 조합이라면 cnt 값이 tdArr.length 값과 같다
                 // pari 값 증가
