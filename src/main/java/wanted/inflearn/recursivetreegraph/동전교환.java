@@ -1,5 +1,7 @@
 package main.java.wanted.inflearn.recursivetreegraph;
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class 동전교환 {
@@ -17,10 +19,10 @@ public class 동전교환 {
      *            15
      */
     static int n,m;
-    static int[] arr;
+    static Integer[] arr;
     static int cnt = Integer.MAX_VALUE; // 거스름돈 개수
 
-    public static void solution(int node, int currentCnt, int sum) {
+    public static void solution(int currentCnt, int sum) {
         if (sum > m) {  // 동전의 합계가 m을 초과하면 종료
             return;
         }
@@ -34,7 +36,7 @@ public class 동전교환 {
         } else {
             // 재귀 - DFS
             for (int i = n-1; i >= 0; i--) {
-                solution(arr[i], currentCnt+1, sum + arr[i]);
+                solution(currentCnt+1, sum + arr[i]);
             }
         }
     }
@@ -42,13 +44,13 @@ public class 동전교환 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         n = in.nextInt();
-        arr = new int[n];
+        arr = new Integer[n];
         for (int i = 0; i < n; i++) {
             arr[i] = in.nextInt();
         }
         m = in.nextInt();
-        // 제일 큰 동전의 값부터 진행
-        solution(arr[n-1], 0, 0);
+        Arrays.sort(arr, Comparator.reverseOrder());
+        solution(0, 0);
 
         System.out.println(cnt);
     }
