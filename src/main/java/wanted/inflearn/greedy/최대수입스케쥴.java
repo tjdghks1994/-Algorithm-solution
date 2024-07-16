@@ -58,7 +58,9 @@ public class 최대수입스케쥴 {
                 }
             }
 
-            answer += pq.poll();    // 현재 우선순위 큐에 담긴 값 중 가장 큰 값을 최대 수입에 저장
+            if (!pq.isEmpty()) {    // 우선순위 큐가 비어있지 않은 경우
+                answer += pq.poll(); // 현재 우선순위 큐에 담긴 값 중 가장 큰 값을 최대 수입에 저장
+            }
         }
 
         System.out.println(answer);
